@@ -20,42 +20,32 @@
 </head>
 
 <body>
-    <h1>Usuario
-        <a type="button" class="btn btn-outline-dark" th:href="@{/usuario/añadir}"><i class="fa fa-plus"></i>Agregar Usuario</a>
+    <h1>Recurso
+        <a type="button" class="btn btn-outline-dark" th:href="@{/recurso/añadir}"><i class="fa fa-plus"></i>Agregar Recurso</a>
     </h1>
     <div class="container-fluid">
-        <h1>Listado Usuarios</h1>
+        <h1>Listado Recurso</h1>
         <table class="table table-dark" id="table">
             <thead class="thead-dark">
                 <th>Id</th>
                 <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Tipo Documento</th>
-                <th>Num Documento</th>
-                <th>correo</th>
-                <th>Tipo Usuario</th>
-                <th>Estado</th>
+                <th>Descripcion</th>
                 <th>Acciones</th>
             </thead>
             <tbody>
-                <tr th:each="us:${usuarios}">
-                    <td th:text="${us.idUsuario}"></td>
-                    <td th:text="${us.nombre}"></td>
-                    <td th:text="${us.apellido}"></td>
-                    <td th:text="${us.TipoDoc}"></td>
-                    <td th:text="${us.NomDoc}"></td>
-                    <td th:text="${us.correo}"></td>
-                    <td th:text="${us.TipoUser}"></td>
-                    <td th:text="${us.estado}"></td>
+                <tr th:each="rec:${recursos}">
+                    <td th:text="${rec.idRecurso}"></td>
+                    <td th:text="${rec.nombre}"></td>
+                    <td th:text="${rec.descripcion}"></td>
                     <td>
 
-                        <a role="button" class="btn btn-warning btn-sm" th:href="@{/usuario/editar/}+${us.idUsuario}"
+                        <a role="button" class="btn btn-warning btn-sm" th:href="@{/recurso/editar/}+${rec.idRecurso}"
                             onclick="return confirm('Estás seguro que quieres editar esta casilla?');">
                             <i class="bi bi-pencil"></i>
                         </a>
 
                         </a>
-                        <a role="button" class="btn btn-danger btn-sm" th:href="@{/usuario/delete/}+${us.idUsuario}"
+                        <a role="button" class="btn btn-danger btn-sm" th:href="@{/recurso/delete/}+${rec.idRecurso}"
                             onclick="return confirm('Estás seguro que quieres eliminar esta casilla?');">
                             <i class="bi bi-trash"></i>
                         </a>

@@ -29,9 +29,7 @@ public class Usuario {
     @Column(name = "TipoDoc", length = 4, nullable = false)
     public String TipoDoc;
 
-    @NotEmpty
-    @Column(name = "Nomdoc", length = 20, nullable = false)
-    public Integer Nomdoc;
+    public Integer NomDoc;
 
     @NotEmpty
     @Column(name = "correo", length = 50, nullable = false)
@@ -41,24 +39,20 @@ public class Usuario {
     @Column(name = "contrasena", length = 32, nullable = false)
     public String contrasena;
     
-    @NotEmpty
-    @Column(name = "TipoUser", length = 20, nullable = false)
     public Integer TipoUser;
 
-    @NotEmpty
-    @Column(name = "estado", nullable = false)
     public Boolean estado;
 
     public Usuario() {
 
     }
     // constructor
-    public Usuario (Integer idUsuario, String nombre, String apellido, String TipoDoc , Integer Nomdoc, String correo, String contrasena, Integer TipoUser, Boolean estado) {
+    public Usuario (Integer idUsuario, String nombre, String apellido, String TipoDoc , Integer NomDoc, String correo, String contrasena, Integer TipoUser, Boolean estado) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
         this.TipoDoc = TipoDoc;
-        this.Nomdoc = Nomdoc;
+        this.NomDoc = NomDoc;
         this.correo = correo;
         this.contrasena = contrasena;
         this.TipoUser = TipoUser;
@@ -94,11 +88,11 @@ public class Usuario {
         TipoDoc = tipodoc;
     }
     //
-    public Integer getNomdoc() {
-        return Nomdoc;
+    public Integer getNomDoc() {
+        return NomDoc;
     }
     public void setNomdoc(Integer nomdoc) {
-        Nomdoc = nomdoc;
+        NomDoc = nomdoc;
     }
     //
     public String getCorreo() {

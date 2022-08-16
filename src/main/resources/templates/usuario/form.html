@@ -39,9 +39,9 @@
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{TipoDoc}"></div>
             </div>     
             <div class="form-group">
-                <label for="Nomdoc">Nomdoc</label>
-                <input type="text" class="form-control" id="Nomdoc" th:field="*{Nomdoc}" >
-                <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{Nomdoc}"></div>
+                <label for="NomDoc">Nomdoc</label>
+                <input type="number" class="form-control" id="NomDoc" th:field="*{NomDoc}" >
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{NomDoc}"></div>
             </div>  
             <div class="form-group">
                 <label for="correo">correo</label>
@@ -55,12 +55,12 @@
             </div>
             <div class="form-group">
                 <label for="TipoUser">TipoUser</label>
-                <input type="text" class="form-control" id="TipoUser" th:field="*{TipoUser}" >
+                <input type="number" class="form-control" id="TipoUser" th:field="*{TipoUser}" >
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{TipoUser}"></div>
             </div>          
             <div class="form-group">
                 <label for="estado">ESTADO</label>
-                <input type="text" class="form-control" id="estado" th:field="*{estado}" >
+                <input type="checkbox" id="estado" th:field="*{estado}" >
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{estado}"></div>
             </div>  
            
