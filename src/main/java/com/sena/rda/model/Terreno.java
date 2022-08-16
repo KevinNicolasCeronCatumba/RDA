@@ -1,10 +1,16 @@
 package com.sena.rda.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -32,8 +38,11 @@ public class Terreno {
 
     private Boolean estTer;
 
-    public Terreno(){
+    @OneToMany(mappedBy = "terreno", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Evento> eventos;
 
+    public Terreno(){
+        eventos = new ArrayList<Evento>();
     }
 
     public Terreno(Integer idTer, String ciudadTer, String dirreTer, String descTer, Integer extensionTer,
@@ -112,5 +121,11 @@ public class Terreno {
         this.estTer = estTer;
     }
     
-    
+    public List<Evento> getEventos() {
+        return eventos;
+    }
+
+    public void setEventos(List<Evento> eventos) {
+        this.eventos = eventos;
+    }
 }
