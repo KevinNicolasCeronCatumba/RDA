@@ -24,4 +24,5 @@ public class Evento {
 
     @OneToMany(mappedBy = "evento", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Grupo> grupos;
+
 }
