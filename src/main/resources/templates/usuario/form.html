@@ -23,33 +23,41 @@
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{nombre}"></div>
             </div>
             <div class="form-group">
-                <label for="apellido">apellido</label>
+                <label for="apellido">Apellido</label>
                 <input type="text" class="form-control" id="apellido" th:field="*{apellido}" >
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{apellido}"></div>
             </div>
             <div class="form-group">
-                <label for="TipoDoc">Tipo Documento</label>
-                <input type="text" class="form-control" id="TipoDoc" th:field="*{TipoDoc}" >
-                <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{TipoDoc}"></div>
+                <label for="tipoDoc">Tipo Documento</label>
+                <SELEct id="tipoDoc" th:field="*{tipoDoc}" class="form-control">
+                    <option value="0" disabled>SELECCIONE TIPO DE DOCUMENTO</option>
+                    <option value="1">CEDULA CIUDADANIA</option>
+                    <option value="2">CEDULA EXTRANGERIA</option>
+                </SELEct>
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{tipoDoc}"></div>
             </div>     
             <div class="form-group">
-                <label for="NomDoc">Nomdoc</label>
-                <input type="number" class="form-control" id="NomDoc" th:field="*{NomDoc}" >
-                <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{NomDoc}"></div>
+                <label for="numDoc">Numero Documento</label>
+                <input type="number" class="form-control" id="numDoc" th:field="*{numDoc}" >
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{numDoc}"></div>
             </div>  
             <div class="form-group">
                 <label for="correo">correo</label>
-                <input type="text" class="form-control" id="correo" th:field="*{correo}" >
+                <input type="email" class="form-control" id="correo" th:field="*{correo}" >
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{correo}"></div>
             </div>
             <div class="form-group">
                 <label for="contrasena">Contraseña</label>
-                <input type="text" class="form-control" id="contrasena" th:field="*{contrasena}" >
+                <input type="password" class="form-control" id="contrasena" th:field="*{contrasena}" >
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{contrasena}"></div>
             </div>
             <div class="form-group">
-                <label for="TipoUser">TipoUser</label>
-                <input type="number" class="form-control" id="TipoUser" th:field="*{TipoUser}" >
+                <label for="tipoUser">TipoUser</label>
+                <SELEct id="tipoUser" th:field="*{tipoUser}" class="form-control">
+                    <option value="0" disabled>SELECCIONE TIPO DE USUARIO</option>
+                    <option value="1">ADMINISTRADOR</option>
+                    <option value="2">LOGISTICA</option>
+                </SELEct>
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{TipoUser}"></div>
             </div>          
             <div class="form-group">

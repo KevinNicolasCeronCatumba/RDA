@@ -27,9 +27,9 @@ public class Usuario {
 
     @NotEmpty
     @Column(name = "TipoDoc", length = 4, nullable = false)
-    public String TipoDoc;
+    public String tipoDoc;
 
-    public Integer NomDoc;
+    public Integer numDoc;
 
     @NotEmpty
     @Column(name = "correo", length = 50, nullable = false)
@@ -39,7 +39,7 @@ public class Usuario {
     @Column(name = "contrasena", length = 32, nullable = false)
     public String contrasena;
     
-    public Integer TipoUser;
+    public Integer tipoUser;
 
     public Boolean estado;
 
@@ -47,15 +47,16 @@ public class Usuario {
 
     }
     // constructor
-    public Usuario (Integer idUsuario, String nombre, String apellido, String TipoDoc , Integer NomDoc, String correo, String contrasena, Integer TipoUser, Boolean estado) {
+    public Usuario (Integer idUsuario, String nombre, String apellido, String tipoDoc , Integer numDoc, String correo, String contrasena, Integer tipoUser, Boolean estado) {
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.TipoDoc = TipoDoc;
-        this.NomDoc = NomDoc;
+        this.tipoDoc = tipoDoc;
+        this.numDoc = numDoc;
         this.correo = correo;
         this.contrasena = contrasena;
-        this.TipoUser = TipoUser;
+        this.tipoUser = tipoUser;
+        this.estado = estado;
         
     }
     // seters y getters
@@ -82,17 +83,17 @@ public class Usuario {
     }
     //
     public String getTipoDoc() {
-        return TipoDoc;
+        return tipoDoc;
     }
-    public void setTipoDoc(String tipodoc) {
-        TipoDoc = tipodoc;
+    public void setTipoDoc(String tipoDoc) {
+        this.tipoDoc = tipoDoc;
     }
     //
-    public Integer getNomDoc() {
-        return NomDoc;
+    public Integer getNumDoc() {
+        return numDoc;
     }
-    public void setNomdoc(Integer nomdoc) {
-        NomDoc = nomdoc;
+    public void setNumDoc(Integer numDoc) {
+        this.numDoc = numDoc;
     }
     //
     public String getCorreo() {
@@ -110,16 +111,16 @@ public class Usuario {
     }
     //
     public Integer getTipoUser() {
-        return TipoUser;
+        return tipoUser;
     }
-    public void setCorreo(Integer TipoUser) {
-        this.TipoUser = TipoUser;
+    public void setTipoUser(Integer tipoUser) {
+        this.tipoUser = tipoUser;
     }
     //
     public Boolean getestado() {
         return estado;
     }
-    public void setCorreo(Boolean estado) {
+    public void setestado(Boolean estado) {
         this.estado = estado;
     }
 }
