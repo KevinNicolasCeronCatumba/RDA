@@ -1,11 +1,16 @@
 package com.sena.rda.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,8 +30,11 @@ public class Grupo {
     @ManyToOne(fetch = FetchType.LAZY)
     private Evento evento;
 
-    public Grupo() {
-        
+    @OneToMany(mappedBy = "grupo", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Asistencia> asistencia;
+
+    public Grupo(){
+        asistencia = new ArrayList<Asistencia>();
     }
     
     public Grupo(Integer idGru, Integer asistenciaGru, Integer cantGru, Empresa empresa, Evento evento) {
@@ -75,5 +83,13 @@ public class Grupo {
 
     public void setEvento(Evento evento) {
         this.evento = evento;
+    }
+
+    public List<Asistencia> getAsistencia() {
+        return asistencia;
+    }
+
+    public void setAsistencia(List<Asistencia> asistencia) {
+        this.asistencia = asistencia;
     }
 }
