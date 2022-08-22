@@ -22,7 +22,13 @@ public class Evento {
     @ManyToOne(fetch = FetchType.LAZY)
     private Terreno terreno;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Usuario usuario;
+
     @OneToMany(mappedBy = "evento", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Grupo> grupos;
+
+    @OneToMany(mappedBy = "evento", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    public List<DetalleRecurso> detallerecurso;
 
 }

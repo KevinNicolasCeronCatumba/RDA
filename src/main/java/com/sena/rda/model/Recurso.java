@@ -1,10 +1,15 @@
 package com.sena.rda.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 @Entity
@@ -25,37 +30,7 @@ public class Recurso {
     @Column(name = "descripcion", length = 255, nullable = false)
     public String descripcion;
 
-    public Recurso() {
-
-    }
-    // constructor
-    public Recurso (Integer idRecurso, String nombre, String descripcion) {
-        this.idRecurso = idRecurso;
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-        
-    }
-    // seters y getters
-    public Integer getIdRecurso() {
-        return idRecurso;
-    }
-    public void setIdUsuario(Integer idRecurso) {
-        this.idRecurso = idRecurso;
-    }
-    //
-    public String getNombre() {
-        return nombre;
-    }
-    //
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-    //
-    public String getdescripcion() {
-        return descripcion;
-    }
-    public void setdescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
+    @OneToMany(mappedBy = "recurso", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    public List<DetalleRecurso> detallerecurso;
    
 }
