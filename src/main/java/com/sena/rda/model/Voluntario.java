@@ -1,18 +1,28 @@
 package com.sena.rda.model;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+=======
+>>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+<<<<<<< HEAD
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+=======
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+>>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
 
 
 @Entity
@@ -24,6 +34,7 @@ public class Voluntario {
     @Column(name = "id")
     public Integer idVoluntario;
 
+<<<<<<< HEAD
     @NotEmpty
     @Column(name = "nombre", length = 20, nullable = false)
     public String nombre;
@@ -39,10 +50,28 @@ public class Voluntario {
     public Integer Nomdoc;
 
     @NotEmpty
+=======
+    
+    @Column(name = "nombre", length = 30, nullable = false)
+    public String nombre;
+
+    
+    
+    @Column(name = "apellido", length = 30, nullable = false)
+    public String apellido;
+
+    
+    
+    @Column(name = "Nomdoc", length = 30, nullable = false)
+    public Integer Nomdoc;
+
+   
+>>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
     @Column(name = "correo", length = 20, nullable = false)
     public String correo;
 
     
+<<<<<<< HEAD
     @NotEmpty
     @Column(name = "telefono", length = 20, nullable = false)
     public Integer telefono;
@@ -53,6 +82,18 @@ public class Voluntario {
 
     public Voluntario() {
         asistencia = new ArrayList<Asistencia>();
+=======
+    
+    @Column(name = "telefono", length = 30, nullable = false)
+    public Integer telefono;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idEve")
+    public Evento evento;
+    
+    public Voluntario() {
+
+>>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
     }
 
     // constructor
@@ -116,6 +157,7 @@ public class Voluntario {
         this.telefono = telefono;
     }
 
+<<<<<<< HEAD
     public List<Asistencia> getAsistencia() {
         return asistencia;
     }
@@ -124,4 +166,7 @@ public class Voluntario {
         this.asistencia = asistencia;
     }
 
+=======
+    
+>>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
 }

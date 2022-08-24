@@ -20,50 +20,30 @@
 </head>
 
 <body>
-    <h1>Voluntario
-        <a type="button" class="btn btn-outline-dark" th:href="@{/voluntario/añadir}"><i class="fa fa-plus"></i>Agregar Voluntario</a>
+    <h1>Observaciones
+        <a type="button" class="btn btn-outline-dark" th:href="@{/observacion/añadir}"><i class="fa fa-plus"></i>Agregar Voluntario</a>
     </h1>
     <div class="container-fluid">
-        <h1>Listado Voluntarios</h1>
+        <h1>Listado Observaciones</h1>
         <table class="table table-dark" id="table">
             <thead class="thead-dark">
                 <th>Id</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>telefono</th>
-                <th>correo</th>
-                <th>Num Documento</th>
+                <th>Descripcion</th>
+                <th>TipoObservacion</th>
             </thead>
             <tbody>
-                <tr th:each="vl:${voluntarios}">
-<<<<<<< HEAD
-                    <td th:text="${vl.idAlbum}"></td>
-=======
-                    <td th:text="${vl.id}"></td>
->>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
-                    <td th:text="${vl.nombre}"></td>
-                    <td th:text="${vl.apellido}"></td>
-                    <td th:text="${vl.telefono}"></td>
-                    <td th:text="${vl.correo}"></td>
-<<<<<<< HEAD
-                    <td th:text="${vl.Nomdoc}"></td>
+                <tr th:each="ob:${observaciones}">
+                    <td th:text="${ob.idObservaciones}"></td>
+                    <td th:text="${ob.Descripcion}"></td>
+                    <td th:text="${ob.TipoObservacion}"></td>
 
-                        <a role="button" class="btn btn-warning btn-sm" th:href="@{/voluntario/editar/}+${vl.idVoluntario}"
-=======
-                    <td th:text="${vl.nomdoc}"></td>
-
-                        <a role="button" class="btn btn-warning btn-sm" th:href="@{/voluntario/editar/}+${vl.id}"
->>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
+                        <a role="button" class="btn btn-warning btn-sm" th:href="@{/observacion/editar/}+${ob.idObservaciones}"
                             onclick="return confirm('Estás seguro que quieres editar esta cancion?');">
                             <i class="bi bi-pencil"></i>
                         </a>
 
                         </a>
-<<<<<<< HEAD
-                        <a role="button" class="btn btn-danger btn-sm" th:href="@{/voluntario/delete/}+${vl.idVoluntario}"
-=======
-                        <a role="button" class="btn btn-danger btn-sm" th:href="@{/voluntario/delete/}+${vl.id}"
->>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
+                        <a role="button" class="btn btn-danger btn-sm" th:href="@{/observacion/delete/}+${ob.idObservaciones}"
                             onclick="return confirm('Estás seguro que quieres eliminar esta cancion?');">
                             <i class="bi bi-trash"></i>
                         </a>

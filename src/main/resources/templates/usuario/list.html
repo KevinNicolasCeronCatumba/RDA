@@ -21,10 +21,17 @@
 
 <body>
     <h1>Usuario
+<<<<<<< HEAD
         <a type="button" class="btn btn-outline-dark" th:href="@{/usuario/añadir}"><i class="fa fa-plus"></i>Agregar Usuario</a>
     </h1>
     <div class="container-fluid">
         <h1>Listado Usuarios</h1>
+=======
+        <a type="button" class="btn btn-outline-dark" th:href="@{/voluntario/añadir}"><i class="fa fa-plus"></i>Agregar Usuario</a>
+    </h1>
+    <div class="container-fluid">
+        <h1>Listado UsuarioS</h1>
+>>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
         <table class="table table-dark" id="table">
             <thead class="thead-dark">
                 <th>Id</th>
@@ -35,27 +42,45 @@
                 <th>correo</th>
                 <th>Tipo Usuario</th>
                 <th>Estado</th>
+<<<<<<< HEAD
                 <th>Acciones</th>
             </thead>
             <tbody>
                 <tr th:each="us:${usuarios}">
+=======
+            </thead>
+            <tbody>
+                <tr th:each="Us:${Usuarios}">
+>>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
                     <td th:text="${us.idUsuario}"></td>
                     <td th:text="${us.nombre}"></td>
                     <td th:text="${us.apellido}"></td>
                     <td th:text="${us.TipoDoc}"></td>
+<<<<<<< HEAD
                     <td th:text="${us.NumDoc}"></td>
+=======
+                    <td th:text="${us.Nomdoc}"></td>
+>>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
                     <td th:text="${us.correo}"></td>
                     <td th:text="${us.TipoUser}"></td>
                     <td th:text="${us.estado}"></td>
                     <td>
 
+<<<<<<< HEAD
                         <a role="button" class="btn btn-warning btn-sm" th:href="@{/usuario/editar/}+${us.idUsuario}"
+=======
+                        <a role="button" class="btn btn-warning btn-sm" th:href="@{/voluntario/editar/}+${vl.idVoluntario}"
+>>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
                             onclick="return confirm('Estás seguro que quieres editar esta casilla?');">
                             <i class="bi bi-pencil"></i>
                         </a>
 
                         </a>
+<<<<<<< HEAD
                         <a role="button" class="btn btn-danger btn-sm" th:href="@{/usuario/delete/}+${us.idUsuario}"
+=======
+                        <a role="button" class="btn btn-danger btn-sm" th:href="@{/voluntario/delete/}+${vl.idVoluntario}"
+>>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
                             onclick="return confirm('Estás seguro que quieres eliminar esta casilla?');">
                             <i class="bi bi-trash"></i>
                         </a>

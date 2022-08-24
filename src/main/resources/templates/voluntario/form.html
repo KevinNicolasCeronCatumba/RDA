@@ -20,11 +20,14 @@
         <form th:action="@{/voluntario/form}" th:object="${voluntario}" method="POST" style="width: 35rem;" class="mx-auto"> 
 
             <div class="form-group">
+<<<<<<< HEAD
                 <label for="idVoluntario">id Voluntario</label>
                 <input type="text" class="form-control" id="idVoluntario" th:field="*{idVoluntario}" >
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{idVoluntario}"></div>
             </div>
             <div class="form-group">
+=======
+>>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
                 <label for="nombre">Nombre</label>
                 <input type="text" class="form-control" id="nombre" th:field="*{nombre}" >
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{nombre}"></div>

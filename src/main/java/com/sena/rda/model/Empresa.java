@@ -1,5 +1,6 @@
 package com.sena.rda.model;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+=======
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+>>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
 import javax.persistence.Table;
 
 @Entity
@@ -33,11 +41,16 @@ public class Empresa {
 
     private Boolean estEmp;
 
+<<<<<<< HEAD
     @OneToMany(mappedBy = "empresa", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Grupo> grupos;
 
     public Empresa(){
         grupos = new ArrayList<Grupo>();
+=======
+    public Empresa(){
+
+>>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
     }
 
     public Empresa(Integer idEmp, String nomEmp, Integer nitEmp, String telEmp, String dirreEmp, Boolean estEmp) {
@@ -97,6 +110,7 @@ public class Empresa {
         this.estEmp = estEmp;
     }
 
+<<<<<<< HEAD
     public List<Grupo> getGrupos() {
         return grupos;
     }
@@ -104,5 +118,8 @@ public class Empresa {
     public void setGrupos(List<Grupo> grupos) {
         this.grupos = grupos;
     }
+=======
+    
+>>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
     
 }

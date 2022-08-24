@@ -13,66 +13,62 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import com.sena.rda.model.Voluntario;
-import com.sena.rda.service.IVoluntarioService;
+import com.sena.rda.model.Observacion;
+import com.sena.rda.service.IObservacionService;
 
 @Controller
-@SessionAttributes("voluntario")
-@RequestMapping("/voluntario")
+@SessionAttributes("observacion")
+@RequestMapping("/observacion")
 
-public class voluntarioController {
+public class observacionController {
 
         @Autowired
-        private IVoluntarioService voluntared;
+        private IObservacionService observed;
     
     
         @GetMapping(path = {"/list","","/"})
         public String lista(Model m){
-            m.addAttribute("voluntarios", voluntared.findAll());
-            return "voluntario/list";
+            m.addAttribute("observaciones", observed.findAll());
+            return "observacion/list";
         }
      
-<<<<<<< HEAD
        @GetMapping("/añadir")
-=======
-       @GetMapping("/list")
->>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
        public String formulario(Model m) {
-           Voluntario voluntario = new Voluntario();
-           m.addAttribute("voluntario", voluntario);
-           m.addAttribute("accion", "Agregar Voluntario");
-           return "voluntario/form";
+        Observacion observacion = new Observacion();
+           m.addAttribute("observacion", observacion);
+           m.addAttribute("accion", "Agregar observacion");
+           return "observacion/add";
        }
     
-        @PostMapping(path ="/form")
-        public String list(@Valid Voluntario voluntario, BindingResult res, Model m, SessionStatus status){
+        @PostMapping(path ="/add")
+        public String list(@Valid Observacion observacion, BindingResult res, Model m, SessionStatus status){
         if(res.hasErrors()){
-            return "voluntario/form";
+            return "observacion/add";
         }
-        voluntared.save(voluntario);
+        observed.save(observacion);
         status.setComplete();
         return "redirect:list";
         }
     
         @GetMapping("/editar/{id}")
         public String editar(@PathVariable Integer id, Model m){
-            Voluntario voluntario= null;
+            Observacion observacion= null;
             if(id>0){
-                voluntario=voluntared.findOne(id);
+                observacion=observed.findOne(id);
             }
             else{
                 return "redirect:list";
             }
-            m.addAttribute("voluntario", voluntario);    
+            m.addAttribute("observacion", observacion);    
     
             m.addAttribute("accion", "editar");
-            return "voluntario/form";
+            return "observacion/add";
         }
     
         @GetMapping("/delete/{id}")
         public String delete(@PathVariable Integer id){
             if(id > 0){
-                voluntared.delete(id);
+                observed.delete(id);
             }
             return "redirect:../list";
         }
