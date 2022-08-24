@@ -32,7 +32,7 @@ public class voluntarioController {
             return "voluntario/list";
         }
      
-       @GetMapping("/añadir")
+       @GetMapping("/list")
        public String formulario(Model m) {
            Voluntario voluntario = new Voluntario();
            m.addAttribute("voluntario", voluntario);
