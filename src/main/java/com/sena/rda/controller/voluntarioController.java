@@ -31,12 +31,7 @@ public class voluntarioController {
             m.addAttribute("voluntarios", voluntared.findAll());
             return "voluntario/list";
         }
-     
-<<<<<<< HEAD
-       @GetMapping("/añadir")
-=======
        @GetMapping("/list")
->>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
        public String formulario(Model m) {
            Voluntario voluntario = new Voluntario();
            m.addAttribute("voluntario", voluntario);

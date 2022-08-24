@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-    package com.sena.rda.service;
-=======
 package com.sena.rda.service;
->>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
 
 import java.util.List;
 

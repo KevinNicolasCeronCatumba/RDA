@@ -32,5 +32,41 @@ public class Recurso {
 
     @OneToMany(mappedBy = "recurso", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     public List<DetalleRecurso> detallerecurso;
+    //constructor
+    public Recurso(){
+
+    }
+    public Recurso(Integer idRecurso, @NotEmpty String nombre, @NotEmpty String descripcion,
+            List<DetalleRecurso> detallerecurso) {
+        this.idRecurso = idRecurso;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.detallerecurso = detallerecurso;
+    }
+    public Integer getIdRecurso() {
+        return idRecurso;
+    }
+    public void setIdRecurso(Integer idRecurso) {
+        this.idRecurso = idRecurso;
+    }
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    public String getDescripcion() {
+        return descripcion;
+    }
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+    public List<DetalleRecurso> getDetallerecurso() {
+        return detallerecurso;
+    }
+    public void setDetallerecurso(List<DetalleRecurso> detallerecurso) {
+        this.detallerecurso = detallerecurso;
+    }
+    
    
 }

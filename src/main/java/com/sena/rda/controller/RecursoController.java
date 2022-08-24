@@ -42,7 +42,7 @@ public class RecursoController {
        }
     
         @PostMapping(path ="/form")
-        public String list(@Valid Recurso  recurso, BindingResult res, Model m, SessionStatus status){
+        public String list(@Valid Recurso recurso, BindingResult res, Model m, SessionStatus status){
         if(res.hasErrors()){
             return "recurso/form";
         }

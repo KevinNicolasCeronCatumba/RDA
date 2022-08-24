@@ -1,32 +1,20 @@
 package com.sena.rda.model;
 
-<<<<<<< HEAD
-import java.util.List;
-
-import javax.persistence.CascadeType;
-=======
 import java.sql.Time;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
->>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-<<<<<<< HEAD
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-=======
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
->>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
 
 @Entity
 @Table(name="eventos")
@@ -35,20 +23,6 @@ public class Evento {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer idEve;
 
-<<<<<<< HEAD
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Terreno terreno;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Usuario usuario;
-
-    @OneToMany(mappedBy = "evento", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Grupo> grupos;
-
-    @OneToMany(mappedBy = "evento", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    public List<DetalleRecurso> detallerecurso;
-
-=======
     @NotEmpty
     @Column(name = "idUsuario", length = 20, nullable = false)
     public Integer idUsuario;
@@ -92,14 +66,17 @@ public class Evento {
     @Column(name = "Observ", length = 20, nullable = false)
     public String Observ;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Terreno terreno;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Usuario usuario;
+    
     @OneToMany(mappedBy = "evento", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Observacion> observacion;
+    private List<Grupo> grupos;
 
     @OneToMany(mappedBy = "evento", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Voluntario> voluntario;
-/**
-     * 
-     */
+    public List<DetalleRecurso> detallerecurso;
     
     public Evento(){
     }
@@ -216,8 +193,4 @@ public class Evento {
     public void setObserv(String observ) {
         Observ = observ;
     }
-    
-
-    
->>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
 }

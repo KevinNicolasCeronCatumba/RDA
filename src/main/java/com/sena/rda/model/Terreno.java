@@ -1,6 +1,5 @@
 package com.sena.rda.model;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,13 +11,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-=======
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
->>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
 import javax.persistence.Table;
 
 @Entity
@@ -45,17 +37,10 @@ public class Terreno {
     private String tipTer;
 
     private Boolean estTer;
-
-<<<<<<< HEAD
     @OneToMany(mappedBy = "terreno", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Evento> eventos;
-
     public Terreno(){
-        eventos = new ArrayList<Evento>();
-=======
-    public Terreno(){
-
->>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
+       eventos = new ArrayList<Evento>();
     }
 
     public Terreno(Integer idTer, String ciudadTer, String dirreTer, String descTer, Integer extensionTer,
@@ -134,7 +119,6 @@ public class Terreno {
         this.estTer = estTer;
     }
     
-<<<<<<< HEAD
     public List<Evento> getEventos() {
         return eventos;
     }
@@ -142,7 +126,5 @@ public class Terreno {
     public void setEventos(List<Evento> eventos) {
         this.eventos = eventos;
     }
-=======
-    
->>>>>>> 6e60289f54b1cfb1684c780f3e1b8982649571cc
+     
 }
