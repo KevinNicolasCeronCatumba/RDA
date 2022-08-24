@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar nueva empresa</title>
+</head>
+<body>
+    <center>
+        <h1 th:text="${accion}"></h1>
+        <form method="post" th:action="@{/empresa/addemp}" th:object="${empresa}">
+            <label>Nombre</label><br>
+                <input type="text" th:field="*{nomEmp}"><br>
+            <label>Nit</label><br>
+                <input type="number" th:field="*{nitEmp}"><br>
+            <label>Telefono</label><br>
+                <input type="text" th:field="*{telEmp}"><br>
+            <label>Dirreccion</label><br>
+                <input type="text" th:field="*{dirreEmp}"><br>
+            <label>Estado</label><br>
+                <input type="checkbox" th:field="*{estEmp}" checked="">
+                <label><span>Activo</span></label><br>
+            <input type="submit" value="Agregar" name="accion">
+        </form>
+    </center>
+</body>
+</html>

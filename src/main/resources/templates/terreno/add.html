@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar nuevo terreno</title>
+</head>
+<body>
+    <center>
+        <h1 th:text="${accion}"></h1>
+        <form method="post" th:action="@{/terreno/addter}" th:object="${terreno}">
+            <label>Ciudad</label><br>
+                <input type="text" th:field="*{ciudadTer}"><br>
+            <label>Direccion</label><br>
+                <input type="text" th:field="*{dirreTer}"><br>
+            <label>Descripcion</label><br>
+                <input type="text" th:field="*{descTer}"><br>
+            <label>Extension(Ha)</label><br>
+                <input type="number" th:field="*{extensionTer}"><br>
+            <label>Terreno Disponible</label><br>
+                <input type="number" min="1" max="100" th:field="*{terDispTer}"><br>
+            <label>Tipo Terreno</label><br>
+                <input type="text" th:field="*{tipTer}"><br>
+            <label>Estado</label><br>
+                <input type="checkbox" th:field="*{estTer}" checked="">
+                <label><span>Activo</span></label><br>
+            <input type="submit" value="Agregar" name="accion">
+        </form>
+    </center>
+</body>
+</html>
