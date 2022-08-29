@@ -20,11 +20,11 @@ public class Terreno {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer idTer;
 
+    @Column(length = 45)
+    private String nomTer;
+
     @Column(length = 30)
     private String ciudadTer;
-
-    @Column(length = 45)
-    private String dirreTer;
 
     @Column(length = 255)
     private String descTer;
@@ -43,11 +43,11 @@ public class Terreno {
        eventos = new ArrayList<Evento>();
     }
 
-    public Terreno(Integer idTer, String ciudadTer, String dirreTer, String descTer, Integer extensionTer,
+    public Terreno(Integer idTer, String nomTer, String ciudadTer, String descTer, Integer extensionTer,
             Integer terDispTer, String tipTer, Boolean estTer) {
         this.idTer = idTer;
+        this.nomTer = nomTer;
         this.ciudadTer = ciudadTer;
-        this.dirreTer = dirreTer;
         this.descTer = descTer;
         this.extensionTer = extensionTer;
         this.terDispTer = terDispTer;
@@ -71,12 +71,12 @@ public class Terreno {
         this.ciudadTer = ciudadTer;
     }
 
-    public String getDirreTer() {
-        return dirreTer;
+    public String getNomTer() {
+        return nomTer;
     }
 
-    public void setDirreTer(String dirreTer) {
-        this.dirreTer = dirreTer;
+    public void setNomTer(String nomTer) {
+        this.nomTer = nomTer;
     }
 
     public String getDescTer() {
