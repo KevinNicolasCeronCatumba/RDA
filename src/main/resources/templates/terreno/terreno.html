@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" type="text/css"
         href="https://cdn.jsdelivr.net/gh/mobius1/vanilla-Datatables@latest/vanilla-dataTables.min.css">
@@ -27,42 +27,47 @@
             <a href="add" type="button" class="buttonadd"><i class="bi bi-plus-circle"></i>&nbsp;Agregar</a>
                 <input type="text" placeholder="Buscar">
         </div>
-        <div class="formar">
+        <div class="todo">
             <div th:if="${terrenos.size==0}" id="nao">
-                <li class="bi bi-exclamation-circle">&nbsp;No hay Terrenos para mostrar</li>
+                <div class="formar">
+                    <li class="bi bi-exclamation-circle">&nbsp;No hay Terrenos para mostrar</li>
+                </div>
             </div>
-                <table>
-                    <tr th:if="${terrenos.size>0}">
-                        <th>Id</th>
-                        <th>Nombre</th>
-                        <th>Ciudad</th>
-                        <th>Descripcion</th>
-                        <th>Extension(Ha)</th>
-                        <th>Terreno Disp</th>
-                        <th>Tipo Terr(%)</th>
-                        <th>Estado</th>
-                        <th colspan="3">
-                            <center>Acciones</center>
-                        </th>
-                    </tr>
-                    <tr th:each="t:${terrenos}">
-                        <td th:text="${t.idTer}"></td>
-                        <td th:text="${t.nomTer}"></td>
-                        <td th:text="${t.ciudadTer}"></td>
-                        <td th:text="${t.descTer}"></td>
-                        <td th:text="${t.extensionTer}"></td>
-                        <td th:text="${t.terDispTer}"></td>
-                        <td th:text="${t.tipTer}"></td>
+            <div th:if="${terrenos.size>0}" th:each="t:${terrenos}" class="terreno">
+                <h2 th:text="${t.nomTer}"></h2>
+                <span th:text="${t.ciudadTer}"></span>
+                    <div class="estado" th:if="${t.estTer==true}"><li class="bi bi-circle-fill"></li>Activo</div>
+                    <div class="estado" th:if="${t.estTer==false}"><li class="bi bi-circle-fill" style="color: red;"></li>Inactivo</div>
+                    <br>
+                    <button type="button" data-bs-toggle="modal" th:attr="data-bs-target='#modal' + ${t.idTer}" rol="button"><li class="bi bi-three-dots"></li></button>
+                    <a th:href="@{/terreno/listid/} + ${t.idTer}" rol="button"><li class="bi bi-pencil"></li></a>
+                    <a th:href="@{/terreno/delete/} + ${t.idTer}" rol="button"><li class="bi bi-trash"></li></a>
 
-                        <td th:if="${t.estTer==true}"><span>Activo</span></td>
-                        <td th:if="${t.estTer==false}"><span>Inactivo</span></td>
-
-                        <td><a href="">Accion1</a></td>
-                        <td><a th:href="@{/terreno/listid/} + ${t.idTer}" rol="button">Modificar</a></td>
-                        <td><a th:href="@{/terreno/delete/} + ${t.idTer}" rol="button">Eliminar</a></td>
-                    </tr>
-                </c:forEach>
-                </table>
+                    <div class="modal fade" th:attr="id='modal' + ${t.idTer}"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLa bel" th:text="${t.nomTer}"></h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p th:text="${t.idTer}"></p>
+                                <p th:text="${t.ciudadTer}"></p>
+                                <p th:text="${t.descTer}"></p>
+                                <p th:text="${t.extensionTer}"></p>
+                                <p th:text="${t.terDispTer}"></p>
+                                <p th:text="${t.tipTer}"></p>
+                            </div>
+                            <div class="modal-footer">
+                              <a type="button" th:href="@{/terreno/listid/} + ${t.idTer}">Modificar</a>
+                              <button type="button">Eliminar</button>  
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+            </div>
+        </c:forEach>
         </div>
     </div>
     </div>

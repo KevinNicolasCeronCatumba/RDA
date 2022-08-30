@@ -88,8 +88,42 @@ h1{
 li{
     list-style: none;
     display: inline-block;
-    color: white;
+    color: black;
     font-size: 1.2em;
     margin: 2% 4%;
 } 
+button{
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+.terreno{
+    width: 20%;
+    display: inline-block;
+    border-radius: 6px;
+    margin: 1.5%;
+    background-color: white;
+    border: 2px solid #bcbcc5;
+}
+h2{
+    margin: 4% 0 1% 0%;
+    font-size: 1.5rem;
+    color: #025f29;
+    font-weight: bold;
+}
+.terreno span{
+    font-size: 1.1rem;
+    color:#07682f;
+}
+.estado{
+    display: inline;
+    margin: 2% 0 2% -30%;
+}
+.estado{
+    margin: auto 1%;
+}
+.bi-circle-fill{
+    font-size: 0.6em;
+    color: green;
+}
 
