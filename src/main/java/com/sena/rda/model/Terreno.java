@@ -26,7 +26,7 @@ public class Terreno {
     @Column(length = 30)
     private String ciudadTer;
 
-    @Column(length = 255)
+    @Column(length = 500)
     private String descTer;
 
     private Integer extensionTer;
