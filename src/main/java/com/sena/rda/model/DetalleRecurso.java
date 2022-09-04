@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name="detallerecurso")
@@ -23,4 +24,10 @@ public class DetalleRecurso {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Evento evento;
+
+    @NotEmpty
+    private Integer tipoRecurso;
+    
+    @NotEmpty
+    private Integer Cantidad;
 }
