@@ -11,7 +11,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "usuario")
 public class Usuario {
@@ -34,9 +36,11 @@ public class Usuario {
     @Column(name = "TipoDoc", length = 4, nullable = false)
     public String tipoDoc;
 
+    @NotNull
     public Integer numDoc;
 
     @NotEmpty
+    @Email
     @Column(name = "correo", length = 50, nullable = false)
     public String correo;
 
