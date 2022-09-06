@@ -19,14 +19,20 @@
         <h1 th:text="${accion}"></h1>
         <form th:action="@{/observacion/add}" th:object="${observacion}" method="POST" style="width: 35rem;" class="mx-auto"> 
 
-            <div class="form-group">
-                <label for="Descripcion">Descripcion</label>
-                <input type="text" class="form-control" id="Descripcion" th:field="*{Descripcion}" >
+            <div class="col-md-10">
+                <label for="Descripcion" class="form-label">Descripcion</label>
+                <div class="invalid-feedback">
+                  Please provide a valid zip.
+                </div>
+                <input type="text" class="form-control" id="Descripcion" th:field="*{Descripcion}" required>
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{Descripcion}"></div>
             </div>
-            <div class="form-group">
-                <label for="TipoObservacion">TipoObservacion</label>
-                <input type="text" class="form-control" id="TipoObservacion" th:field="*{TipoObservacion}" >
+            <div class="col-md-4">
+                <label for="TipoObservacion"  class="form-label">TipoObservacion</label>
+                <div class="invalid-feedback">
+                    Please provide a valid zip.
+                  </div>
+                <input type="text" class="form-control" id="TipoObservacion" th:field="*{TipoObservacion}" required >
                 <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{TipoObservacion}"></div>
             </div>
             <div>
