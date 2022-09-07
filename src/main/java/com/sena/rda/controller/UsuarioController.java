@@ -37,7 +37,7 @@ public class UsuarioController {
        public String formulario(Model m) {
            Usuario usuario = new Usuario();
            m.addAttribute("usuario", usuario);
-           m.addAttribute("accion", "Agregar Usuario");
+           m.addAttribute("accion", "AGREGAR USUARIO");
            return "usuario/form";
        }
     
@@ -62,7 +62,7 @@ public class UsuarioController {
             }
             m.addAttribute("usuario", usuario);    
     
-            m.addAttribute("accion", "editar");
+            m.addAttribute("accion", "EDITAR USUARIO");
             return "usuario/form";
         }
     

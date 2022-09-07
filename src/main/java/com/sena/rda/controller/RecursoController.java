@@ -37,7 +37,7 @@ public class RecursoController {
        public String formulario(Model m) {
            Recurso recurso = new Recurso();
            m.addAttribute("recurso", recurso);
-           m.addAttribute("accion", "Agregar Recurso");
+           m.addAttribute("accion", "AGREGAR RECURSO");
            return "recurso/form";
        }
     
@@ -62,7 +62,7 @@ public class RecursoController {
             }
             m.addAttribute("recurso", recurso);    
     
-            m.addAttribute("accion", "editar");
+            m.addAttribute("accion", "EDITAR");
             return "recurso/form";
         }
     
