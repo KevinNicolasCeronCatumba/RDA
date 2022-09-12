@@ -27,26 +27,41 @@ public class terrenoController {
     @GetMapping(path={"/listar","","/"})
     public String listgen(Model m){
         m.addAttribute("terrenos", iterreno.findAll());
+        Terreno terreno = new Terreno();
+        m.addAttribute("terreno" , terreno);
+        m.addAttribute("accion" , "Agregar nuevo terreno");
         return "terreno/terreno";
     }
-    
-    @GetMapping("/add")
+    /*@GetMapping("/add")
     public String add(Model m){
         Terreno terreno = new Terreno();
         m.addAttribute("terreno" , terreno);
         m.addAttribute("accion" , "Agregar nuevo terreno");
         return "terreno/add";
-    }
+    } */
     @PostMapping("/addter")
     public String add(@Valid Terreno terreno,BindingResult res, Model m, SessionStatus status){
         if(res.hasErrors()){
-            m.addAttribute("accion" , "Agregar nuevo terreno");
+            m.addAttribute("terrenos", iterreno.findAll());
+            m.addAttribute("accion" , "Agregar nuevo Terreno");
+            m.addAttribute("error" , "No se pudo agregar el nuevo terreno");
+            return "terreno/terreno";      
+        }
+        iterreno.save(terreno);
+        status.setComplete();
+        return "redirect:listar";
+    } 
+    @PostMapping("/udpter")
+    public String upd(@Valid Terreno terreno,BindingResult res, Model m, SessionStatus status){
+        if(res.hasErrors()){
+            m.addAttribute("accion" , "Modificar el terreno");
             return "terreno/add";      
         }
         iterreno.save(terreno);
         status.setComplete();
         return "redirect:listar";
     }  
+    
     @GetMapping("/listid/{id}")  
     public String listid(@PathVariable Integer id, Model m){
         Terreno terreno = null;

@@ -6,22 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agregar nuevo terreno</title>
 </head>
-<body>
+<body>  
     <center>
         <h1 th:text="${accion}"></h1>
-        <form method="post" th:action="@{/terreno/addter}" th:object="${terreno}">
+        <form method="post" th:action="@{/terreno/udpter}" th:object="${terreno}">
             <label>Nombre</label><br>
                 <input type="text" th:field="*{nomTer}" autocapitalize="sentences"><br>
+                <p th:if="${#fields.hasErrors('*')}" th:errors="*{nomTer}"></p>
             <label>Municipio o Departamento</label><br>
                 <input type="text" th:field="*{ciudadTer}" autocapitalize=""><br>
+                <p th:if="${#fields.hasErrors('*')}" th:errors="*{ciudadTer}"></p>
             <label>Descripcion</label><br>
                 <textarea th:field="*{descTer}" cols="30" rows="10"></textarea><br>
+                <p th:if="${#fields.hasErrors('*')}" th:errors="*{descTer}"></p>
             <label>Extension(Ha)</label><br>
                 <input type="number" th:field="*{extensionTer}"><br>
+                <p th:if="${#fields.hasErrors('*')}" th:errors="*{extensionTer}"></p>
             <label>Terreno Disponible</label><br>
                 <input type="number" min="1" max="100" th:field="*{terDispTer}" value="100"><br>
+                <p th:if="${#fields.hasErrors('*')}" th:errors="*{terDispTer}"></p>
             <label>Tipo Terreno(%)</label><br>
                 <input type="text" th:field="*{tipTer}"><br>
+                <p th:if="${#fields.hasErrors('*')}" th:errors="*{tipTer}"></p>
             <label>Estado</label><br>
                 <input type="checkbox" th:field="*{estTer}" checked="">
                 <label><span>Activo</span></label><br>

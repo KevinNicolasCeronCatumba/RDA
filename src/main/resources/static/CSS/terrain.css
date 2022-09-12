@@ -129,18 +129,19 @@ h2{
 /* Modal */
 .modal-title{
     font-weight: bold;
+    font-size: 1.6em;
 }
 .modal{
     text-align: left;
-    --bs-modal-width: 800px;   
+    --bs-modal-width: 900px;   
 }
 b{
     margin: 2% auto;
 }
-.modal-body{
+.modal-body-desc{
     display: inline-flex;
 }
-.modal-body span{
+.modal-body-desc span{
     color: black;
 }
 .content{
@@ -156,4 +157,50 @@ b{
     float: left;
     padding: 3%;
 }
-
+.modal-body-form{
+    width: 100%;
+    display: block;
+    text-align: left;
+    padding: 1%;
+}
+.row{
+    padding: 1%;
+}
+.row div{
+    padding: 1%;
+}
+.foot-form{
+    text-align: center;
+    margin-bottom: 2%;
+}
+.col-ms-4{
+    width: 33.3%;
+}
+.col-ms-5{
+    width: 50%;
+}
+.col-ms-3{
+    width: 25%;
+}
+.row label, .foot-form label{
+    margin-left: 8%;
+    font-weight: 600;
+    font-size: 1rem;
+}
+.row input[type="text"], .row input[type="number"], textarea{
+    border: 1px rgb(155, 153, 153) solid;
+    margin: 3%;
+    padding: 1.5%;
+    width: 85%;
+    border-radius: 5px;
+}
+/* Errores */
+.row p{
+    text-align: left;
+    margin-left: 3%;
+    color: red;
+}
+.row .col-ms-3 p{
+    text-align: center;
+    margin-left: 0%;
+}

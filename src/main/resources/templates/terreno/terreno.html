@@ -24,8 +24,8 @@
     <div class="all">
         <div class="line">ㅤ</div>
         <div class="nav">
-            <a href="add" type="button" class="buttonadd"><i class="bi bi-plus-circle"></i>&nbsp;Agregar</a>
-                <input type="text" placeholder="Buscar">
+            <button type="button" class="buttonadd" data-bs-toggle="modal" data-bs-target="#addmodal"><i class="bi bi-plus-circle"></i>&nbsp;Agregar</button>              
+            <input type="text" placeholder="Buscar">
         </div>
         <div class="todo">
             <div th:if="${terrenos.size==0}" id="nao">
@@ -41,7 +41,7 @@
                     <br>
                     <button type="button" data-bs-toggle="modal" th:attr="data-bs-target='#modal' + ${t.idTer}" rol="button"><li class="bi bi-three-dots"></li></button>
                     <a th:href="@{/terreno/listid/} + ${t.idTer}" rol="button"><li class="bi bi-pencil"></li></a>
-                    <a th:href="@{/terreno/delete/} + ${t.idTer}" rol="button"><li class="bi bi-trash"></li></a>
+                    <a th:href="@{/terreno/delete/} + ${t.idTer}" rol="button" onclick="return confirm('¿Estás seguro que quieres eliminar este terreno?');"><li class="bi bi-trash"></li></a>
 
                     <div class="modal fade" th:attr="id='modal' + ${t.idTer}"  tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
@@ -50,7 +50,7 @@
                               <h5 class="modal-title" id="exampleModalLa bel" th:text="${t.nomTer}"></h5>
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-body modal-body-desc">
                                 <div class="content">
                                     <b>Ubicación: </b><span th:text="${t.ciudadTer}"></span><br><br>
                                     <b>Tipo de terreno: </b><span th:text="${t.tipTer}"></span><br><br>
@@ -66,7 +66,7 @@
                             </div>
                             <div class="modal-footer">
                               <a type="button" th:href="@{/terreno/listid/} + ${t.idTer}" class="btn btn-primary">Modificar</a>
-                              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Eliminar</button>
+                              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="return confirm('¿Estás seguro que quieres eliminar este terreno?');">Eliminar</button>
                             </div>
                           </div>
                         </div>
@@ -75,6 +75,85 @@
         </c:forEach>
         </div>
     </div>
+    </div>
+    <div class="modal fade" id="addmodal" tabindex="-1" aria-labelledby="addmodal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="addmodal" th:text="${accion}"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body modal-body-form">
+                <div class="container-fluid">
+                    <form method="post" th:action="@{/terreno/addter}" th:object="${terreno}">
+                    <div class="row">
+                        <div class="col-ms-4">
+                            <label>Nombre:</label><br>
+                            <input type="text" th:field="*{nomTer}">
+                            <p th:if="${#fields.hasErrors('*')}" th:errors="*{nomTer}"></p>
+                        </div>
+                        <div class="col-ms-4">
+                            <label>Ubicación:</label>
+                            <input type="text" th:field="*{ciudadTer}">
+                            <p th:if="${#fields.hasErrors('*')}" th:errors="*{ciudadTer}"></p>
+                        </div>
+                        <div class="col-ms-4">
+                            <label>Tipo Terreno:</label>
+                            <input type="text" th:field="*{tipTer}">
+                            <p th:if="${#fields.hasErrors('*')}" th:errors="*{tipTer}"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-ms-5">
+                            <label>Descripción:</label><br>
+                            <textarea th:field="*{descTer}"></textarea>
+                            <p th:if="${#fields.hasErrors('*')}" th:errors="*{descTer}"></p>
+                        </div>
+                        <div class="col-ms-3">
+                            <label>Extensión(Ha):</label>
+                            <input type="number" th:field="*{extensionTer}">
+                            <p th:if="${#fields.hasErrors('*')}" th:errors="*{extensionTer}"></p>
+                        </div>
+                        <div class="col-ms-3">
+                            <label>Terreno Disponible(%):</label>
+                            <input type="number" th:field="*{terDispTer}" min="1" max="100" value="100">
+                            <p th:if="${#fields.hasErrors('*')}" th:errors="*{terDispTer}"></p>
+                        </div>
+                    </div>
+                    <div class="foot-form">
+                        <label>Estado</label>
+                            <input type="checkbox" th:field="*{estTer}" checked="">
+                            <span>Activo</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" value="Agregar" name="accion" class="btn btn-primary">Agregar</button>
+            </form>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Volver</button>
+            </div>
+        </div>
+        </div>
+        <div th:if="${error}">
+            <script>
+                const Toast = Swal.mixin({
+                toast: true,
+                position: 'top',
+                showConfirmButton: false,
+                timer: 3300,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+                })
+
+                Toast.fire({
+                icon: 'error',
+                title: 'No se pudo agregar el Terreno'
+                })
+            </script>
+        </div>
     </div>
 </body>
 </html>

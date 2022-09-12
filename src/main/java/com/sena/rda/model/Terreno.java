@@ -13,6 +13,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 @Entity
 @Table(name="terrenos")
 public class Terreno {
@@ -20,19 +24,25 @@ public class Terreno {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer idTer;
 
+    @NotEmpty(message="El campo nombre es obligatorio")
     @Column(length = 45)
     private String nomTer;
 
+    @NotEmpty(message="El campo ubicación es obligatorio")
     @Column(length = 30)
     private String ciudadTer;
 
+    @Size(max=500, message="El máximo de caracteres permitido es 500")
     @Column(length = 500)
     private String descTer;
 
+    @NotNull(message="El campo extensión es obligatorio")
     private Integer extensionTer;
 
+    @NotNull(message="El campo terreno disponible es obligatorio")
     private Integer terDispTer;
 
+    @NotEmpty(message="El campo tipo terreno es obligatorio")
     @Column(length = 30)
     private String tipTer;
 
