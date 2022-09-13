@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,12 +16,17 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import com.sena.rda.model.Observacion;
 import com.sena.rda.service.IObservacionService;
+import com.sena.rda.validator.ObservacionValidator;
 
 @Controller
 @SessionAttributes("observacion")
 @RequestMapping("/observacion")
 
 public class observacionController {
+
+    protected void initBinder(WebDataBinder binder) {
+        binder.setValidator(new ObservacionValidator());
+    }
 
         @Autowired
         private IObservacionService observed;
