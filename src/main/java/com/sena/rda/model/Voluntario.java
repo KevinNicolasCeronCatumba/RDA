@@ -32,7 +32,7 @@ public class Voluntario {
     @Column(name = "Nomdoc", length = 30, nullable = false)
     public Integer Nomdoc;
 
-    @Column(name = "correo", length = 20, nullable = false)
+    @Column(name = "correo", length = 100, nullable = false)
     public String correo;
     
     @Column(name = "telefono", length = 30, nullable = false)
