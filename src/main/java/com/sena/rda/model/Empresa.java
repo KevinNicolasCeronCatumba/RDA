@@ -22,7 +22,7 @@ public class Empresa {
 
     @Column(length = 45)
     private String nomEmp;
-
+    
     private Integer nitEmp;
 
     @Column(length = 15)
