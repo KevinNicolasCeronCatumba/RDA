@@ -1,7 +1,7 @@
 package com.sena.rda.model;
 
 import java.sql.Time;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -22,49 +22,27 @@ public class Evento {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer idEve;
-
-    @NotEmpty
-    @Column(name = "idUsuario", length = 20, nullable = false)
-    public Integer idUsuario;
-
-    @NotEmpty
-    @Column(name = "idTer", length = 20, nullable = false)
-    public Integer idTer;
-
     
-    @NotEmpty
-    @Column(name = "Fecha", length = 20, nullable = false)
-    public Date Fecha;
+    @Column(nullable = false)
+    public Date fechaEve;
 
-    
-    @NotEmpty
-    @Column(name = "HoraI", length = 20, nullable = false)
-    public Time HoraI;
+    @Column(nullable = false)
+    public Time horaIniEve;
 
-    
-    @NotEmpty
-    @Column(name = "HoraF", length = 20, nullable = false)
-    public Time HoraF;
+    @Column(nullable = false)
+    public Time horaFinEve;
 
-    
-    @NotEmpty
-    @Column(name = "Reporte", length = 20, nullable = false)
-    public String Reporte;
+    @Column(length = 200, nullable = false)
+    public String ReporteEve;
 
-    
-    @NotEmpty
-    @Column(name = "NumArboles", length = 20, nullable = false)
-    public Integer NumArboles;
+    @Column(nullable = false)
+    public Integer numArbEve;
 
-    
-    @NotEmpty
-    @Column(name = "TipoEve", length = 20, nullable = false)
-    public Integer TipoEve;
+    @Column(nullable = false)
+    public Integer TipEve;
 
-    
-    @NotEmpty
-    @Column(name = "Observ", length = 20, nullable = false)
-    public String Observ;
+    @Column(length = 50, nullable = false)
+    public String ObsEve;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Terreno terreno;
@@ -79,118 +57,120 @@ public class Evento {
     public List<DetalleRecurso> detallerecurso;
     
     public Evento(){
+
     }
 
-
-    public Evento(Integer idEve, Integer idUsuario, Integer idTer, Date Fecha, Time HoraI, Time HoraF, String Reporte,Integer NumArboles,Integer TipoEve,String Observ) {
+    public Evento(Integer idEve, Date fechaEve, Time horaIniEve, Time horaFinEve, String reporteEve, Integer numArbEve,
+            Integer tipEve, String obsEve, Terreno terreno, Usuario usuario, List<Grupo> grupos,
+            List<DetalleRecurso> detallerecurso) {
         this.idEve = idEve;
-        this.idUsuario = idUsuario;
-        this.idTer = idTer;
-        this.Fecha = Fecha;
-        this.HoraI = HoraI;
-        this.HoraF = HoraF;
-        this.Reporte = Reporte;
-        this.NumArboles = NumArboles;
-        this.Observ = Observ;
+        this.fechaEve = fechaEve;
+        this.horaIniEve = horaIniEve;
+        this.horaFinEve = horaFinEve;
+        ReporteEve = reporteEve;
+        this.numArbEve = numArbEve;
+        TipEve = tipEve;
+        ObsEve = obsEve;
+        this.terreno = terreno;
+        this.usuario = usuario;
+        this.grupos = grupos;
+        this.detallerecurso = detallerecurso;
     }
-
 
     public Integer getIdEve() {
         return idEve;
     }
 
-
     public void setIdEve(Integer idEve) {
         this.idEve = idEve;
     }
 
-
-    public Integer getIdUsuario() {
-        return idUsuario;
+    public Date getFechaEve() {
+        return fechaEve;
     }
 
-
-    public void setIdUsuario(Integer idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setFechaEve(Date fechaEve) {
+        this.fechaEve = fechaEve;
     }
 
-
-    public Integer getIdTer() {
-        return idTer;
+    public Time getHoraIniEve() {
+        return horaIniEve;
     }
 
-
-    public void setIdTer(Integer idTer) {
-        this.idTer = idTer;
+    public void setHoraIniEve(Time horaIniEve) {
+        this.horaIniEve = horaIniEve;
     }
 
-
-    public Date getFecha() {
-        return Fecha;
+    public Time getHoraFinEve() {
+        return horaFinEve;
     }
 
-
-    public void setFecha(Date fecha) {
-        Fecha = fecha;
+    public void setHoraFinEve(Time horaFinEve) {
+        this.horaFinEve = horaFinEve;
     }
 
-
-    public Time getHoraI() {
-        return HoraI;
+    public String getReporteEve() {
+        return ReporteEve;
     }
 
-
-    public void setHoraI(Time horaI) {
-        HoraI = horaI;
+    public void setReporteEve(String reporteEve) {
+        ReporteEve = reporteEve;
     }
 
-
-    public Time getHoraF() {
-        return HoraF;
+    public Integer getNumArbEve() {
+        return numArbEve;
     }
 
-
-    public void setHoraF(Time horaF) {
-        HoraF = horaF;
+    public void setNumArbEve(Integer numArbEve) {
+        this.numArbEve = numArbEve;
     }
 
-
-    public String getReporte() {
-        return Reporte;
+    public Integer getTipEve() {
+        return TipEve;
     }
 
-
-    public void setReporte(String reporte) {
-        Reporte = reporte;
+    public void setTipEve(Integer tipEve) {
+        TipEve = tipEve;
     }
 
-
-    public Integer getNumArboles() {
-        return NumArboles;
+    public String getObsEve() {
+        return ObsEve;
     }
 
-
-    public void setNumArboles(Integer numArboles) {
-        NumArboles = numArboles;
+    public void setObsEve(String obsEve) {
+        ObsEve = obsEve;
     }
 
-
-    public Integer getTipoEve() {
-        return TipoEve;
+    public Terreno getTerreno() {
+        return terreno;
     }
 
-
-    public void setTipoEve(Integer tipoEve) {
-        TipoEve = tipoEve;
+    public void setTerreno(Terreno terreno) {
+        this.terreno = terreno;
     }
 
-
-    public String getObserv() {
-        return Observ;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-
-    public void setObserv(String observ) {
-        Observ = observ;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
+
+    public List<Grupo> getGrupos() {
+        return grupos;
+    }
+
+    public void setGrupos(List<Grupo> grupos) {
+        this.grupos = grupos;
+    }
+
+    public List<DetalleRecurso> getDetallerecurso() {
+        return detallerecurso;
+    }
+
+    public void setDetallerecurso(List<DetalleRecurso> detallerecurso) {
+        this.detallerecurso = detallerecurso;
+    }  
+    
 }

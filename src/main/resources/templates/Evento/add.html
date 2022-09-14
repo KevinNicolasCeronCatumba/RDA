@@ -17,43 +17,45 @@
     <div class="container-fluid">
         <h1>Formulario Evento</h1>
         <h1 th:text="${accion}"></h1>
-        <form th:action="@{/evento/add}" th:object="${evento}" method="POST" style="width: 35rem;" class="mx-auto"> 
-
+        <form  method="post" th:action="@{/evento/add}" th:object="${evento}" style="width: 35rem;" class="mx-auto"> 
             <div class="form-group">
-                <label for="Fecha">Fecha</label>
-                <input type="text" class="form-control" id="Fecha" th:field="*{Fecha}" >
-                <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{Fecha}"></div>
+                <label>Fecha</label>
+                <input type="date" class="form-control" th:field="*{fechaEve}">
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{fechaEve}"></div>
             </div>
             <div class="form-group">
                 <label for="Hora inicio">Hora inicio</label>
-                <input type="text" class="form-control" id="Hora inicio" th:field="*{Hora inicio}" >
-                <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{Hora inicio}"></div>
+                <input type="text" class="form-control" id="Hora inicio" th:field="*{horaIniEve}" >
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{horaIniEve}"></div>
             </div>
             <div class="form-group">
                 <label for="Hora final">Hora final</label>
-                <input type="text" class="form-control" id="Hora final" th:field="*{Hora final}" >
-                <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{Hora final}"></div>
+                <input type="text" class="form-control" id="Hora final" th:field="*{horaFinEve}" >
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{horaFinEve}"></div>
             </div>      
             <div class="form-group">
                 <label for="Reporte">Reporte</label>
-                <input type="text" class="form-control" id="Reporte" th:field="*{Reporte}" >
-                <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{Reporte}"></div>
+                <input type="text" class="form-control" id="Reporte" th:field="*{reporteEve}" >
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{reporteEve}"></div>
             </div>         
             <div class="form-group">
                 <label for="NumArboles">NumArboles</label>
-                <input type="text" class="form-control" id="NumArboles" th:field="*{NumArboles}" >
-                <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{NumArboles}"></div>
+                <input type="text" class="form-control" id="NumArboles" th:field="*{numArbEve}" >
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{numArbEve}"></div>
             </div>   
            
             <div class="form-group">
                 <label for="TipoEvento">TipoEvento</label>
-                <input type="text" class="form-control" id="TipoEvento" th:field="*{TipoEvento}" >
-                <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{TipoEvento}"></div>
+                <select th:field="*{TipEve}" id="TipoEvento" class="form-control">
+                    <option value="1">Público</option>
+                    <option value="2">Privado</option>
+                    <option value="3">Empresarial</option>
+                </select>
             </div>   
             <div class="form-group">
                 <label for="Observaciones">Observaciones</label>
-                <input type="text" class="form-control" id="Observaciones" th:field="*{Observaciones}" >
-                <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{Observaciones}"></div>
+                <input type="text" class="form-control" id="Observaciones" th:field="*{obsEve}" >
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{obsEve}"></div>
             </div>   
             <div>
                 <button type="submit" class="btn btn-primary">Guardar</button>

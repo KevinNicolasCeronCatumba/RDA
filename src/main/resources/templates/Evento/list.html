@@ -21,7 +21,7 @@
 
 <body>
     <h1>Evento
-        <a type="button" class="btn btn-outline-dark" th:href="@{/evento/añadir}"><i class="fa fa-plus"></i>Agregar Voluntario</a>
+        <a type="button" class="btn btn-outline-dark" th:href="@{/evento/addeve}"><i class="fa fa-plus"></i>Agregar Nuevo Evento</a>
     </h1>
     <div class="container-fluid">
         <h1>Listado Evento</h1>
@@ -35,33 +35,36 @@
                 <th>Num Arboles</th>
                 <th>Tipo evento</th>
                 <th>Observaciones</th>
+                <th colspan="2">Acciones</th>
             </thead>
             <tbody>
                 <tr th:each="ev:${eventos}">
                     <td th:text="${ev.idEve}"></td>
-                    <td th:text="${ev.Fecha}"></td>
-                    <td th:text="${ev.HoraI}"></td>
-                    <td th:text="${ev.HoraF}"></td>
-                    <td th:text="${ev.Reporte}"></td>
-                    <td th:text="${ev.NumArboles}"></td>
-                    <td th:text="${ev.TipoEve}"></td>
-                    <td th:text="${ev.Observ}"></td>
+                    <td th:text="${ev.fechaEve}"></td>
+                    <td th:text="${ev.horaIniEve}"></td>
+                    <td th:text="${ev.horaFinEve}"></td>
+                    <td th:text="${ev.ReporteEve}"></td>
+                    <td th:text="${ev.numArbEve}"></td>
 
+                    <td th:if="${ev.TipEve==1}">Público</td>
+                    <td th:if="${ev.TipEve==2}">Privado</td>
+                    <td th:if="${ev.TipEve==3}">Empresarial</td>
+
+                    <td th:text="${ev.ObsEve}"></td>
+                    <td>
                         <a role="button" class="btn btn-warning btn-sm" th:href="@{/evento/editar/}+${ev.idEve}"
                             onclick="return confirm('Estás seguro que quieres editar esta cancion?');">
                             <i class="bi bi-pencil"></i>
                         </a>
-
+                    </td>
+                    <td>
                         </a>
                         <a role="button" class="btn btn-danger btn-sm" th:href="@{/evento/delete/}+${ev.idEve}"
                             onclick="return confirm('Estás seguro que quieres eliminar esta cancion?');">
                             <i class="bi bi-trash"></i>
                         </a>
-
-
                     </td>
-
-                </tr>
+               </tr>
             </tbody>
         </table>
     </div>

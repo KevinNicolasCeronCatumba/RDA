@@ -46,7 +46,7 @@ public class terrenoController {
             m.addAttribute("accion" , "Agregar nuevo Terreno");
             m.addAttribute("error" , "No se pudo agregar el nuevo terreno");
             return "terreno/terreno";      
-        }
+        } 
         iterreno.save(terreno);
         status.setComplete();
         return "redirect:listar";
