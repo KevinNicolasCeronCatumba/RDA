@@ -36,20 +36,20 @@
             </thead>
             <tbody>
                 <tr th:each="vl:${voluntarios}">
-                    <td th:text="${vl.id}"></td>
+                    <td th:text="${vl.idVoluntario}"></td>
                     <td th:text="${vl.nombre}"></td>
                     <td th:text="${vl.apellido}"></td>
                     <td th:text="${vl.telefono}"></td>
                     <td th:text="${vl.correo}"></td>
                     <td th:text="${vl.nomdoc}"></td>
 
-                        <a role="button" class="btn btn-warning btn-sm" th:href="@{/voluntario/editar/}+${vl.id}"
+                        <a role="button" class="btn btn-warning btn-sm" th:href="@{/voluntario/editar/}+${vl.idVoluntario}"
                             onclick="return confirm('Estás seguro que quieres editar esta cancion?');">
                             <i class="bi bi-pencil"></i>
                         </a>
 
                         </a>
-                        <a role="button" class="btn btn-danger btn-sm" th:href="@{/voluntario/delete/}+${vl.id}" onclick="return confirm('Estás seguro que quieres eliminar esta cancion?');">
+                        <a role="button" class="btn btn-danger btn-sm" th:href="@{/voluntario/delete/}+${vl.idVoluntario}" onclick="return confirm('Estás seguro que quieres eliminar esta cancion?');">
                             <i class="bi bi-trash"></i>
                         </a>
 
