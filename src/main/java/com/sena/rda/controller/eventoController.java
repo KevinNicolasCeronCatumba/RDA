@@ -30,7 +30,7 @@ public class eventoController {
         return "evento/list";
     }
     
-    @GetMapping("/add")
+    @GetMapping("/addeve")
     public String add(Model m){
         Evento evento = new Evento();
         m.addAttribute("evento" , evento);
