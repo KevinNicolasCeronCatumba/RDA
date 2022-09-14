@@ -33,7 +33,6 @@
                 <td th:if="${e.estEmp==true}"><span>Activo</span></td>
                 <td th:if="${e.estEmp==false}"><span>Inactivo</span></td>
 
-                <td><a href="">Accion1</a></td>
                 <td><a th:href="@{/empresa/listid/} + ${e.idEmp}" rol="button">Modificar</a></td>
                 <td><a th:href="@{/empresa/delete/} + ${e.idEmp}" rol="button">Eliminar</a></td>
             </tr>

@@ -12,12 +12,16 @@
         <form method="post" th:action="@{/empresa/addemp}" th:object="${empresa}">
             <label>Nombre</label><br>
                 <input type="text" th:field="*{nomEmp}"><br>
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{nomEmp}"></div>
             <label>Nit</label><br>
                 <input type="number" th:field="*{nitEmp}"><br>
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{nitEmp}"></div>
             <label>Telefono</label><br>
-                <input type="text" th:field="*{telEmp}"><br>
+                <input type="number" th:field="*{telEmp}"><br>
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{telEmp}"></div>
             <label>Dirreccion</label><br>
                 <input type="text" th:field="*{dirreEmp}"><br>
+                <div class="form-text text-danger" th:if="${#fields.hasErrors('*')}" th:errors="*{dirreEmp}"></div>
             <label>Estado</label><br>
                 <input type="checkbox" th:field="*{estEmp}" checked="">
                 <label><span>Activo</span></label><br>

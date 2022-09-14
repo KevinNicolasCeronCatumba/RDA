@@ -23,28 +23,28 @@ public class Usuario {
     @Column(name = "id")
     public Integer idUsuario;
 
-    @NotEmpty
+    @NotEmpty(message="El campo Nombre es obligatorio")
     @Column(name = "nombre", length = 30, nullable = false)
     public String nombre;
 
     
-    @NotEmpty
+    @NotEmpty(message="El campo Apellido es obligatorio")
     @Column(name = "apellido", length = 30, nullable = false)
     public String apellido;
 
-    @NotEmpty
+    @NotEmpty(message="El campo Tipo Documento es obligatorio")
     @Column(name = "TipoDoc", length = 4, nullable = false)
     public String tipoDoc;
 
-    @NotNull
+    @NotNull(message="El campo Numero Documento es obligatorio")
     public Integer numDoc;
 
-    @NotEmpty
+    @NotEmpty(message="El campo Correo Electronico es obligatorio")
     @Email
     @Column(name = "correo", length = 50, nullable = false)
     public String correo;
 
-    @NotEmpty
+    @NotEmpty(message="El campo Contraseña es obligatorio")
     @Column(name = "contrasena", length = 32, nullable = false)
     public String contrasena;
     

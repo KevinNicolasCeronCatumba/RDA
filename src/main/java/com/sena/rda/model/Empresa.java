@@ -12,22 +12,30 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name="empresas")
+@Table(name="empresas", uniqueConstraints=@UniqueConstraint(columnNames="nitEmp"))
 public class Empresa {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer idEmp;
 
+    @NotEmpty(message="El campo Nombre es obligatorio")
     @Column(length = 45)
     private String nomEmp;
 
+    @NotNull(message="El campo Nit es obligatorio")
+    @Column(unique = true)
     private Integer nitEmp;
 
+    @NotNull(message="El campo Telefono es obligatorio")
     @Column(length = 15)
-    private String telEmp;
+    private Integer telEmp;
 
+    @NotEmpty(message="El campo Direccion es obligatorio")
     @Column(length = 45)
     private String dirreEmp;
 
@@ -41,7 +49,7 @@ public class Empresa {
 
     }
 
-    public Empresa(Integer idEmp, String nomEmp, Integer nitEmp, String telEmp, String dirreEmp, Boolean estEmp) {
+    public Empresa(Integer idEmp, String nomEmp, Integer nitEmp, Integer telEmp, String dirreEmp, Boolean estEmp) {
         this.idEmp = idEmp;
         this.nomEmp = nomEmp;
         this.nitEmp = nitEmp;
@@ -74,11 +82,11 @@ public class Empresa {
         this.nitEmp = nitEmp;
     }
 
-    public String getTelEmp() {
+    public Integer getTelEmp() {
         return telEmp;
     }
 
-    public void setTelEmp(String telEmp) {
+    public void setTelEmp(Integer telEmp) {
         this.telEmp = telEmp;
     }
 
